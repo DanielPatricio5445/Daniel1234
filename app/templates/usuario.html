@@ -1,0 +1,26 @@
+
+    <div class="container mt-5">
+        <h1>Usuários Cadastrados</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Senha</th>
+                    <th colspan="2">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in listUsuarios %}
+                    <tr>
+                        <td>{{ usuario.nome }}</td>
+                        <td>{{ usuario.email }}</td>
+                        <td>{{ usuario.senha }}</td>
+                        <td><a href="{% url 'excluirUsuario' usuario.id %}">Excluir</td>
+                        <td><a href="{% url 'editarUsuario' usuario.id %}">Editar</td>
+                    </tr>
+                {%  endfor %}
+            </tbody>
+        </table>
+    </div>
+

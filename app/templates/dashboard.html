@@ -1,0 +1,11 @@
+{% block title %}Dashboard{% endblock %}
+{% block conteudo %}
+    
+    <h1>bem vindo {{email}}</h1>
+    <a href="{% url 'exibirUsuarios' %}">Ir para a pagina Usuario</a> <br>
+    <a href="{% url 'cadastrar_produto' %}">Ir para a pagina de cadastro de produto</a> <br>
+    <a href="{% url 'listar_produtos' %}">Ir para a pagina para exibir produtos</a><br>
+    
+
+{% endblock %}
+

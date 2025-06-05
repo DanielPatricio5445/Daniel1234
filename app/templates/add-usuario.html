@@ -1,0 +1,71 @@
+{% block titulo %}
+    Novo Usuário
+{% endblock %}
+
+{% block conteudo %}
+    <div class="container mt-5">
+        <h1>Cadastrar Novo Usuário</h1>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.nome.label_tag }} {{ form.nome }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }} {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.senha.label_tag }} {{ form.senha }}
+            </div>
+            <div class="form-group">
+                {{ form.cep.label_tag }} {{ form.cep }}
+            </div>
+            <div class="form-group">
+                {{ form.logradouro.label_tag }} {{ form.logradouro }}
+            </div>
+            <div class="form-group">
+                {{ form.bairro.label_tag }} {{ form.bairro }}
+            </div>
+            <div class="form-group">
+                {{ form.localidade.label_tag }} {{ form.localidade }}
+            </div>
+            <div class="form-group">
+                {{ form.uf.label_tag }} {{ form.uf }}
+            </div>
+            <div class="form-group">
+                {{ form.numero.label_tag }} {{ form.numero }}
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Cadastrar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cepInput = document.getElementById('id_cep');
+
+            cepInput.addEventListener('blur', function () {
+                const cep = cepInput.value.replace(/\D/g, '');
+
+                if (cep.length !== 8) return;
+
+                fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (!data.erro) {
+                            document.getElementById('id_logradouro').value = data.logradouro;
+                            document.getElementById('id_bairro').value = data.bairro;
+                            document.getElementById('id_localidade').value = data.localidade;
+                            document.getElementById('id_uf').value = data.uf;
+                        } else {
+                            alert("CEP não encontrado.");
+                        }
+                    })
+                    .catch(() => {
+                        alert("Erro ao buscar o CEP.");
+                    });
+            });
+        });
+    </script>
+{% endblock %}

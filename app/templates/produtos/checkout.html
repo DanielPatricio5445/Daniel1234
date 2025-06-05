@@ -1,0 +1,12 @@
+{% block content %}
+<h2>Finalizar Compra</h2>
+<p><strong>Produto:</strong> {{ produto.nome }}</p>
+<p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+<p><strong>Cliente:</strong> {{ cliente.nome }} - {{ cliente.email }}</p>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Finalizar Compra</button>
+</form>
+{% endblock %}

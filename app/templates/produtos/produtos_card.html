@@ -1,0 +1,23 @@
+<h2>Produtos Cards</h2>
+
+{% for produto in produtos %}
+<div style="border: 1px solid #ccc; padding: 10px; width: 200px;">
+  <img src="{{ produto.foto.url }}" style="width: 100%;">
+  <h3>{{ produto.nome }}</h3>
+  <p>{{ produto.descricao }}</p>
+  <p><strong>R$ {{ produto.preco }}</strong></p>
+  <p>Estoque: {{ produto.estoque }}</p>
+</div>
+{% endfor %}
+</div>
+  {% block conteudo %}
+    <h1>Produtos internacionais</h1>
+
+    {% for prod in produtos %}
+      <img src="{{prod.image}}" width="50px">
+      <h3>{{prod.image}}<h3>
+      <p>R$ {{prod.price}}</p>
+      <hr>
+    {% endfor %}
+  {% endblock %}
+ 
