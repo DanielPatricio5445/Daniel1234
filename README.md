@@ -1,4 +1,8 @@
+## Passo a passo para abrir o Projeto 
+
 Abra o repositório, na seção "CODE", e copiar o link
+
+
 No seu VS Code, abra o terminal de comando e dê um git clone link
 
 Ai você dá esses comandos nessa ordem, dentro do terminal:
@@ -15,16 +19,20 @@ py -m pip install djangorestframework django-cors-headers - instala o djangofram
 
 py -m manage runserver - roda o server
 
-py manage.py makemigrations
-py manage.py migrate
-py manage.py sqlmigrate appHome 0001
-
-py manage.py shell
 
 
+## Outros comandos 
+---
+> py manage.py makemigrations
 
-from appHome.models import sua model
+> py manage.py migrate
 
-Usuario.objects.all()
+> py manage.py sqlmigrate appHome 0001
 
-py manage.py createsuperuser
+> py manage.py shell
+
+> from appHome.models import sua model
+
+> Usuario.objects.all()
+
+> py manage.py createsuperuser
