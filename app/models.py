@@ -47,3 +47,4 @@ class Venda(models.Model):
 
     def __str__(self):
         return f"Venda de {self.produto.nome} para {self.cliente.nome}"
+
